@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - Dark Admin</title>
+
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/local.css" />
+    <script type="text/javascript" src="../../js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../../layui/css/layui.css" media="all" />
+    <link rel="stylesheet" href="../../laydate/theme/default/laydate.css" media="all">
+    <script type="text/javascript" src="../../js/judge3.js"></script>
+    <style>
+
+        div {
+            padding-bottom:14px;
+        }
+        table{
+            background-color: #f9f4ce;
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="wrapper">
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="developerIndex.html">Index to Developer</a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav side-nav">
+                <li><a href="developerIndex.html"><i class="fa fa-bullseye"></i> Index</a></li>
+                <li><a href="profileDevelop.html"><i class="fa fa-font"></i> Profile</a></li>
+                <li class="selected"><a href="settingsDevelop.html"><i class="fa fa-font"></i> Settings</a></li>
+                <li><a href="formsDevelop.html"><i class="fa fa-list-ol"></i> ChangPwd</a></li>
+                <li style="display: none;"><a href="errorWritingDevelop.html"><i class="fa fa-table"></i > Edit_ErrorWriting</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right navbar-user">
+                <li class="dropdown messages-dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> Messages <span class="badge">2</span> <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-header">2 New Messages</li>
+                        <li class="message-preview">
+                            <a href="#">
+                                <span class="avatar"><i class="fa fa-bell"></i></span>
+                                <span class="message">Security alert</span>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li class="message-preview">
+                            <a href="#">
+                                <span class="avatar"><i class="fa fa-bell"></i></span>
+                                <span class="message">Security alert</span>
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li><a href="#">Go to Inbox <span class="badge">2</span></a></li>
+                    </ul>
+                </li>
+                <li class="dropdown user-dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user fa2" id="showname"></i><b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a id="profile" type="button" style="cursor: pointer"><i class="fa fa-user"></i> Profile</a></li>
+                        <li><a id="settings" type="button" style="cursor: pointer"><i class="fa fa-gear"></i> Settings</a></li>
+                        <li class="divider"></li>
+                        <li><a href="../../index_protal.html" id="outlogin"><i class="fa fa-power-off"></i> Log Out</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="layui-form" style="margin-top: 100px;">
+        <div class="row text-center">
+            <h2>Change Your Information</h2>
+        </div>
+        <div>
+            <label for="name" class="col-md-3 back2">
+                Your Name:
+            </label>
+            <div class="col-md-7">
+                <input class="back3" type="text" id="name"  lay-verify="required">
+            </div>
+
+        </div>
+        <div>
+            <label for="username" class="col-md-3 back2">
+                Your Username:
+            </label>
+            <div class="col-md-7">
+                <input class="back3" type="text" id="username" readonly>
+            </div>
+            <div class="col-md-1">
+                <i class="fa fa-lock fa-2x"></i>
+            </div>
+        </div>
+        <div>
+            <label for="phone" class="col-md-3 back2">
+                Your Phone:
+            </label>
+            <div class="col-md-7">
+                <input class="back3" type="tel" id="phone"  placeholder="请输入手机号" lay-verify="phone">
+            </div>
+
+        </div>
+
+        <div>
+            <label for="emailaddress" class="col-md-3 back2">
+                Your E-mail:
+            </label>
+            <div class="col-md-7">
+                <!--<input class="back3" type="text" id="emailaddress"  lay-verify="required">-->
+                <input name="email" class="layui-input back3" type="text" id="emailaddress" placeholder="请输入邮箱" lay-verify="email">
+                <p class="help-block">
+                    Example: yourname@domain.com
+                </p>
+            </div>
+
+        </div>
+        <div>
+            <label for="sex" class="col-md-3 back2">
+                Your Gender:
+            </label>
+            <div class="col-md-7" id="click1">
+                <label class="radio2">
+                    <input type="radio" name="sex" id="sex" value="男" title="男">
+                </label>
+                <label class="radio2">
+                    <input type="radio" name="sex" id="sex2" value="女" title="女">
+                </label>
+            </div>
+
+        </div>
+        <div>
+            <label for="birthday" class="col-md-3 back2">
+                Your Birthday:
+            </label>
+            <div class="col-md-7" id="d1">
+                <input class="back3" type="text" id="birthday"  lay-verify="required">
+                <p class="help-block">
+                    Example: yyyy-MM-dd
+                </p>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-3">
+            </div>
+            <div class="col-md-7">
+                <button type="submit" class="btn btn-info" id="updateAmaldar" lay-submit="" lay-filter="update">
+                    Update
+                </button>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script type="text/javascript" src="../../js/contants3.js"></script>
+<script type="text/javascript" src="../../layui/layui.js"></script>
+<script type="text/javascript" src="../../laydate/laydate.js"></script>
+<script type="text/javascript" src="../../js/settingsDevelop.js"></script>
+
+</body>
+</html>

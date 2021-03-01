@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Dark Admin</title>
+
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../font-awesome/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/local.css" />
+
+    <script type="text/javascript" src="../../js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+    <!-- you need to include the shieldui css and js assets in order for the charts to work -->
+    <link rel="stylesheet" type="text/css" href="http://www.shieldui.com/shared/components/latest/css/light-bootstrap/all.min.css" />
+    <link id="gridcss" rel="stylesheet" type="text/css" href="http://www.shieldui.com/shared/components/latest/css/dark-bootstrap/all.min.css" />
+    <script type="text/javascript" src="../../js/judge.js"></script>
+    <!--<link rel="stylesheet" type="text/css" href="../../layui/css/layui.css">-->
+</head>
+<body>
+    <div id="wrapper">
+          <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">Index Of Amaldar</a>
+            </div>
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul id="active" class="nav navbar-nav side-nav">
+                    <li class="selected"><a href="index.html"><i class="fa fa-bullseye"></i> Index</a></li>
+                    <li><a href="profile.html"><i class="fa fa-font"></i> Profile</a></li>
+                    <li><a href="settings.html"><i class="fa fa-font"></i> Settings</a></li>
+                    <li><a href="forms.html"><i class="fa fa-list-ol"></i> ChangPwd</a></li>
+                    <li style="display: none"><a href="errorWriting.html"><i class="fa fa-table"></i > Edit_ErrorWriting</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right navbar-user">
+                    <li class="dropdown messages-dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-envelope"></i> Messages <span class="badge">2</span> <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-header">2 New Messages</li>
+                            <li class="message-preview">
+                                <a href="#">
+                                    <span class="avatar"><i class="fa fa-bell"></i></span>
+                                    <span class="message">Security alert</span>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li class="message-preview">
+                                <a href="#">
+                                    <span class="avatar"><i class="fa fa-bell"></i></span>
+                                    <span class="message">Security alert</span>
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li><a href="#">Go to Inbox <span class="badge">2</span></a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown user-dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user fa2" id="showname"></i> <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a id="profile" type="button" style="cursor: pointer"><i class="fa fa-user"></i> Profile</a></li>
+                            <li><a id="settings" type="button" style="cursor: pointer"><i class="fa fa-gear"></i> Settings</a></li>
+                            <li class="divider"></li>
+                            <li><a type="button" id="outlogin" style="cursor: pointer"><i class="fa fa-power-off"></i> Log Out</a></li>
+
+                        </ul>
+                    </li>
+                    <li class="divider-vertical"></li>
+                    <li>
+                        <form class="navbar-search">
+                            <input type="text" placeholder="Search" id="back" class="form-control"  readonly>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <div id="page-wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="h">Dashboard <small>Statistics and more</small></h1>
+                    <select name="status" id="status" class="select1">
+                        <option style="display:none" value="nochooes">- - - - - - - - - 请 选 择 报 告 状 态 - - - - - - - -</option>
+                        <option value="">( 状态 )&nbsp;&nbsp;所有</option>
+                        <option value="0">( 状态 )&nbsp;&nbsp;关闭</option>
+                        <option value="1">( 状态 )&nbsp;&nbsp;开放</option>
+                        <option value="2">( 状态 )&nbsp;&nbsp;已分配</option>
+                        <option value="3">( 状态 )&nbsp;&nbsp;拒绝</option>
+                        <option value="4">( 状态 )&nbsp;&nbsp;已修复</option>
+                        <option value="5">( 状态 )&nbsp;&nbsp;无法修复</option>
+                    </select>
+                    <input name="condition" class="select3" id="condition" placeholder="报告主题/人员/程序名称"/>
+                    <button type="button" class="btn btn-info b1" onclick="show()" id="b1">Search</button>
+                    <div class="alert alert-dismissable alert-warning">
+                        <button data-dismiss="alert" class="close" type="button">&times;</button>
+                        Welcome to the admin dashboard! Feel free to review all pages and modify the layout to your needs.
+                        <br />
+                        This theme uses the <a href="https://www.shieldui.com">ShieldUI</a> JavaScript library for the
+                        additional data visualization and presentation functionality illustrated here.
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row">
+                    <table class="table-hover table1" id="stu_table">
+                        <thead>
+                        <tr>
+                            <th width="50px">编号</th>
+                            <th style="padding-left: 20px; padding-right: 20px">报告主题</th>
+                            <th style="padding-left: 20px; padding-right: 20px">程序名称</th>
+                            <th width="100px">严重程度</th>
+                            <th width="100px">优先等级</th>
+                            <th width="150px">报告人员</th>
+                            <th width="150px">处理人员</th>
+                            <th width="150px">经理人员</th>
+                            <th width="150px">创建时间</th>
+                            <th width="100px">状态</th>
+                            <th width="120px">编辑</th>
+                        </tr>
+                        </thead>
+                        <tbody id="list">
+
+                        </tbody>
+
+                    </table>
+                </div>
+                </div>
+
+            </div>
+            <div class="row" style="float: right;margin: 20px 10px 10px 0;" id="row1">
+                <p style="display: inline-block;font-size: large;padding-right: 20px;">总共<span id="totalPage"></span>页</p>
+                <button type="button" class="btn btn-default" style="width:50px" id="page1" hidden="hidden">
+                    <span><</span>
+                </button>
+                <input type="text" style="height: 38px;border-radius: 5px;color: black; width: 80px;text-align: center;border: 1px solid;" id="text1" value="1">
+                <button type="button" class="btn btn-default" style="width: 50px" id="page2">
+                    <span>></span>
+                </button>
+                <button type="button" class="btn btn-default btn-danger" style="margin-left: 10px" id="retu">
+                    <span>跳转</span>
+                </button>
+            </div>
+            <div class="row" style="float: right;margin: 20px 10px 10px 0;" id="row2">
+                <p style="display: inline-block;font-size: large;padding-right: 20px;">总共<span id="totalPage2"></span>页</p>
+                <button type="button" class="btn btn-default" style="width:50px" id="page11" hidden="hidden">
+                    <span><</span>
+                </button>
+                <input type="text" style="height: 38px;border-radius: 5px;color: black; width: 80px;text-align: center;border: 1px solid;" id="text11" value="1">
+                <button type="button" class="btn btn-default" style="width: 50px" id="page22">
+                    <span>></span>
+                </button>
+                <button type="button" class="btn btn-default btn-danger" style="margin-left: 10px" id="retu2">
+                    <span>跳转</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- /#wrapper -->
+    <!--<script type="text/javascript" src="../../layui/layui.js"></script>-->
+    <script type="text/javascript" src="../../js/contants.js"></script>
+    <script type="text/javascript" src="../../js/indexJs.js"></script>
+</body>
+</html>

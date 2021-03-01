@@ -1,0 +1,31 @@
+[{
+	"title" : "后台首页",
+	"icon" : "icon-computer",
+	"href" : "page/main.html",
+	"spread" : false
+},{
+	"title" : "测试人员列表",
+	"icon" : "icon-text",
+	"href" : "page/news/newsList.html",
+	"spread" : false
+},{
+	"title" : "开发人员列表",
+	"icon" : "&#xe64c;",
+	"href" : "page/links/newsList.html",
+	"spread" : false
+},{
+	"title" : "经理人员列表",
+	"icon" : "&#xe612;",
+	"href" : "page/amaldar/newsList.html",
+	"spread" : false
+},{
+    "title" : "管理人员列表",
+    "icon" : "&#xe613;",
+    "href" : "page/manager/newsList.html",
+    "spread" : false
+},{
+	"title" : "页面面板参数",
+	"icon" : "&#xe631;",
+	"href" : "page/systemParameter/systemParameter.html",
+	"spread" : false
+}]

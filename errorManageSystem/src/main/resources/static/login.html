@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>索引</title>
+    <script type="text/javascript" src="jquery-1.11.2.min.js"></script>
+</head>
+<body>
+<table class="table table-hover" id="stu_table">
+				<thead>
+					<tr>
+					   
+						<th>ID</th>
+						<th>Name</th>
+						<th>Gender</th>
+						<th>Email</th>
+						<th>Phone</th>
+						<th>Birth</th>
+						<th>RegTime</th>
+					</tr>
+				</thead>
+				<tbody>
+
+				</tbody>
+
+			</table>
+
+<script type="text/javascript">
+    $(function () {
+        $.ajax({
+            type: "GET",
+            url: "http://localhost:8080/Manager/getOne.do",
+            data:"id="+1,
+            success: function(result) {
+            	 var json =result.data; //数组       
+            	 
+            	 if(result.code!=0){
+                	 alert(result.exception);
+                 }
+                     //循环获取数据  
+                     var name = $("<td></td>").append(json.name);
+                     var username = $("<td></td>").append(json.username);
+                     var sex = $("<td></td>").append(json.sex);
+                     var phone = $("<td></td>").append(json.phone);
+                     var email = $("<td></td>").append(json.email);
+                     var password = $("<td></td>").append(json.password);
+                     var birth=$("<td></td>").append(
+     						new Date(json.birthday).toLocaleDateString());
+                     
+                     $("<tr></tr>").append(name).append(username).append(sex)
+						.append(email).append(phone).append(password).append(birth).appendTo(
+								"#stu_table tbody");
+                     
+                 
+                
+            }
+        });
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cqj.project.dao.mapper.ErrorWritingMapper">
+  <resultMap id="BaseResultMap" type="com.cqj.project.dao.entity.ErrorWriting">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="errorTheme" jdbcType="VARCHAR" property="errortheme" />
+    <result column="createDate" jdbcType="TIMESTAMP" property="createdate" />
+    <result column="dealDate" jdbcType="TIMESTAMP" property="dealdate" />
+    <result column="endDate" jdbcType="TIMESTAMP" property="enddate" />
+    <result column="demoName" jdbcType="VARCHAR" property="demoname" />
+    <result column="ponderance" jdbcType="INTEGER" property="ponderance" />
+    <result column="reporterid" jdbcType="INTEGER" property="reporterid" />
+    <result column="dealerId" jdbcType="INTEGER" property="dealerid" />
+    <result column="amaldarId" jdbcType="INTEGER" property="amaldarid" />
+    <result column="priority" jdbcType="INTEGER" property="priority" />
+    <result column="note" jdbcType="VARCHAR" property="note" />
+    <result column="version" jdbcType="VARCHAR" property="version" />
+    <result column="updateDate" jdbcType="TIMESTAMP" property="updatedate" />
+    <result column="errorOfWriting" jdbcType="VARCHAR" property="errorofwriting" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, status, errorTheme, createDate, dealDate, endDate, demoName, ponderance, reporterid, 
+    dealerId, amaldarId, priority, note, version, updateDate, errorOfWriting
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from info_errorwriting
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from info_errorwriting
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.cqj.project.dao.entity.ErrorWriting">
+    insert into info_errorwriting (id, status, errorTheme, 
+      createDate, dealDate, endDate, 
+      demoName, ponderance, reporterid, 
+      dealerId, amaldarId, priority, 
+      note, version, updateDate, 
+      errorOfWriting)
+    values (#{id,jdbcType=INTEGER}, #{status,jdbcType=INTEGER}, #{errortheme,jdbcType=VARCHAR}, 
+      #{createdate,jdbcType=TIMESTAMP}, #{dealdate,jdbcType=TIMESTAMP}, #{enddate,jdbcType=TIMESTAMP}, 
+      #{demoname,jdbcType=VARCHAR}, #{ponderance,jdbcType=INTEGER}, #{reporterid,jdbcType=INTEGER}, 
+      #{dealerid,jdbcType=INTEGER}, #{amaldarid,jdbcType=INTEGER}, #{priority,jdbcType=INTEGER}, 
+      #{note,jdbcType=VARCHAR}, #{version,jdbcType=VARCHAR}, #{updatedate,jdbcType=TIMESTAMP}, 
+      #{errorofwriting,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.cqj.project.dao.entity.ErrorWriting">
+    insert into info_errorwriting
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="errortheme != null">
+        errorTheme,
+      </if>
+      <if test="createdate != null">
+        createDate,
+      </if>
+      <if test="dealdate != null">
+        dealDate,
+      </if>
+      <if test="enddate != null">
+        endDate,
+      </if>
+      <if test="demoname != null">
+        demoName,
+      </if>
+      <if test="ponderance != null">
+        ponderance,
+      </if>
+      <if test="reporterid != null">
+        reporterid,
+      </if>
+      <if test="dealerid != null">
+        dealerId,
+      </if>
+      <if test="amaldarid != null">
+        amaldarId,
+      </if>
+      <if test="priority != null">
+        priority,
+      </if>
+      <if test="note != null">
+        note,
+      </if>
+      <if test="version != null">
+        version,
+      </if>
+      <if test="updatedate != null">
+        updateDate,
+      </if>
+      <if test="errorofwriting != null">
+        errorOfWriting,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="errortheme != null">
+        #{errortheme,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null">
+        #{createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dealdate != null">
+        #{dealdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enddate != null">
+        #{enddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="demoname != null">
+        #{demoname,jdbcType=VARCHAR},
+      </if>
+      <if test="ponderance != null">
+        #{ponderance,jdbcType=INTEGER},
+      </if>
+      <if test="reporterid != null">
+        #{reporterid,jdbcType=INTEGER},
+      </if>
+      <if test="dealerid != null">
+        #{dealerid,jdbcType=INTEGER},
+      </if>
+      <if test="amaldarid != null">
+        #{amaldarid,jdbcType=INTEGER},
+      </if>
+      <if test="priority != null">
+        #{priority,jdbcType=INTEGER},
+      </if>
+      <if test="note != null">
+        #{note,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedate != null">
+        #{updatedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="errorofwriting != null">
+        #{errorofwriting,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.cqj.project.dao.entity.ErrorWriting">
+    update info_errorwriting
+    <set>
+      <if test="status != null">
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="errortheme != null">
+        errorTheme = #{errortheme,jdbcType=VARCHAR},
+      </if>
+      <if test="createdate != null">
+        createDate = #{createdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dealdate != null">
+        dealDate = #{dealdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enddate != null">
+        endDate = #{enddate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="demoname != null">
+        demoName = #{demoname,jdbcType=VARCHAR},
+      </if>
+      <if test="ponderance != null">
+        ponderance = #{ponderance,jdbcType=INTEGER},
+      </if>
+      <if test="reporterid != null">
+        reporterid = #{reporterid,jdbcType=INTEGER},
+      </if>
+      <if test="dealerid != null">
+        dealerId = #{dealerid,jdbcType=INTEGER},
+      </if>
+      <if test="amaldarid != null">
+        amaldarId = #{amaldarid,jdbcType=INTEGER},
+      </if>
+      <if test="priority != null">
+        priority = #{priority,jdbcType=INTEGER},
+      </if>
+      <if test="note != null">
+        note = #{note,jdbcType=VARCHAR},
+      </if>
+      <if test="version != null">
+        version = #{version,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedate != null">
+        updateDate = #{updatedate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="errorofwriting != null">
+        errorOfWriting = #{errorofwriting,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.cqj.project.dao.entity.ErrorWriting">
+    update info_errorwriting
+    set status = #{status,jdbcType=INTEGER},
+      errorTheme = #{errortheme,jdbcType=VARCHAR},
+      createDate = #{createdate,jdbcType=TIMESTAMP},
+      dealDate = #{dealdate,jdbcType=TIMESTAMP},
+      endDate = #{enddate,jdbcType=TIMESTAMP},
+      demoName = #{demoname,jdbcType=VARCHAR},
+      ponderance = #{ponderance,jdbcType=INTEGER},
+      reporterid = #{reporterid,jdbcType=INTEGER},
+      dealerId = #{dealerid,jdbcType=INTEGER},
+      amaldarId = #{amaldarid,jdbcType=INTEGER},
+      priority = #{priority,jdbcType=INTEGER},
+      note = #{note,jdbcType=VARCHAR},
+      version = #{version,jdbcType=VARCHAR},
+      updateDate = #{updatedate,jdbcType=TIMESTAMP},
+      errorOfWriting = #{errorofwriting,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  
+   <select id="selectAllErrorWritings" parameterType="map" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from info_errorwriting
+  </select>
+  
+  <select id="selectErrorWritingsByStatus" parameterType="map" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from info_errorwriting
+    <where>
+      <if test="status != null">
+        and status=#{status}
+      </if>
+    </where>
+  </select>
+
+  <!--<select id="selectErrorWritingsByStatusAndDealerId" parameterType="map" resultMap="BaseResultMap">-->
+    <!--select-->
+    <!--<include refid="Base_Column_List" />-->
+    <!--from info_errorwriting-->
+    <!--<where>-->
+      <!--<if test="status != null">-->
+        <!--and status=#{status}-->
+      <!--</if>-->
+      <!--<if test="dealerId != null">-->
+        <!--and dealerId=#{dealerId}-->
+      <!--</if>-->
+    <!--</where>-->
+  <!--</select>-->
+
+    <select id="selectErrorWritingsByStatusAndDealerIdAndCondition" parameterType="map" resultMap="BaseResultMap">
+        SELECT info_errorwriting.id as id,info_errorwriting.status as status, info_errorwriting.errorTheme as errorTheme,
+        info_errorwriting.createDate as createDate, info_errorwriting.dealDate as dealDate, info_errorwriting.endDate as endDate,
+        info_errorwriting.demoName as demoName, info_errorwriting.ponderance as ponderance, info_errorwriting.reporterid as reporterid,
+        info_errorwriting.dealerId as dealerId, info_errorwriting.amaldarId as amaldarId, info_errorwriting.priority as priority,
+        info_errorwriting.note as note, info_errorwriting.version as version, info_errorwriting.updateDate as updateDate,
+        info_errorwriting.errorOfWriting as errorOfWriting
+        from (
+        ( info_errorwriting
+        LEFT JOIN info_developer ON info_errorwriting.dealerId = info_developer.id
+        )
+        LEFT JOIN info_tester ON info_errorwriting.reporterid = info_tester.id
+        ) LEFT JOIN info_amaldar ON info_errorwriting.amaldarId= info_amaldar.id
+        <where>
+            <if test="status != null">
+                and status=#{status}
+            </if>
+            <if test="dealerId != null">
+                and dealerId=#{dealerId}
+            </if>
+            and (info_tester.name like '%${condition}%' or info_developer.name like '%${condition}%'
+            or info_amaldar.name like '%${condition}%' or info_errorwriting.errorTheme like '%${condition}%' or info_errorwriting.demoName like '%${condition}%')
+        </where>
+    </select>
+
+  <select id="selectErrorWritingsByStatusAndCondition" parameterType="map" resultMap="BaseResultMap">
+    SELECT info_errorwriting.id as id,info_errorwriting.status as status, info_errorwriting.errorTheme as errorTheme,
+    info_errorwriting.createDate as createDate, info_errorwriting.dealDate as dealDate, info_errorwriting.endDate as endDate,
+     info_errorwriting.demoName as demoName, info_errorwriting.ponderance as ponderance, info_errorwriting.reporterid as reporterid,
+     info_errorwriting.dealerId as dealerId, info_errorwriting.amaldarId as amaldarId, info_errorwriting.priority as priority,
+      info_errorwriting.note as note, info_errorwriting.version as version, info_errorwriting.updateDate as updateDate,
+       info_errorwriting.errorOfWriting as errorOfWriting
+     from (
+       ( info_errorwriting
+					 LEFT JOIN info_developer ON info_errorwriting.dealerId = info_developer.id
+			 )
+        LEFT JOIN info_tester ON info_errorwriting.reporterid = info_tester.id
+    ) LEFT JOIN info_amaldar ON info_errorwriting.amaldarId= info_amaldar.id
+      <where>
+          <if test="status != null">
+            and info_errorwriting.status = #{status}
+        </if>
+   and (info_tester.name like '%${condition}%' or info_developer.name like '%${condition}%'
+	or info_amaldar.name like '%${condition}%' or info_errorwriting.errorTheme like '%${condition}%' or info_errorwriting.demoName like '%${condition}%')
+      </where>
+  </select>
+  
+</mapper>

@@ -1,0 +1,10 @@
+{
+    "cmsName": "基于layui后台模版的管理系统",
+    "version": "v1.0",
+    "author": "陈庆杰",
+    "homePage": "login.html",
+    "server": "windows",
+    "dataBase": "mysql5.7.11",
+    "maxUpload": "2M",
+    "userRights": "总管理员"
+}

@@ -1,0 +1,43 @@
+.right1{
+    margin-left: 115px;
+}
+
+.top{
+    margin-top: 20px;
+    font-size: 15px;
+}
+
+.top2{
+    margin-top: 40px;
+    font-size: 15px;
+}
+
+.balace{
+    height: 38px;
+    line-height: 38px;
+}
+
+.border_color{
+    border:1px solid #ff0703;
+}
+
+.layui-btn-div {
+    margin-left: 35px;
+    display: inline-block;
+    height: 38px;
+    line-height: 38px;
+    padding: 0 18px;
+    background-color: #eb7350;
+    color: #fff;
+    white-space: nowrap;
+    text-align: center;
+    font-size: 14px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+.width2{
+    width: 100px;
+}
